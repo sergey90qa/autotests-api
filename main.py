@@ -6,3 +6,6 @@ if __name__ == "__main__":
     print_h1("Hello, World!")
     print_h1("Welcome to Python Programming")
     print_h1("This is a test header")
+
+def print_anything():
+    ...

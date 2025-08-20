@@ -88,7 +88,7 @@ class ExercisesClient(APIClient):
         """
         return self.get(f"/api/v1/exercises/{exercise_id}")
 
-    def post_exercise_api(self, request: CreateExerciseRequestDict) -> Response:
+    def create_exercise_api(self, request: CreateExerciseRequestDict) -> Response:
         """
         Метод создания упражнения.
 
@@ -98,7 +98,7 @@ class ExercisesClient(APIClient):
         return self.post("/api/v1/exercises", json=request)
 
 
-    def patch_exercise_api(self, exercise_id: str, request: UpdateExerciseRequestDict) -> Response:
+    def update_exercise_api(self, exercise_id: str, request: UpdateExerciseRequestDict) -> Response:
         """
         Метод частичного обновления упражнения.
 

@@ -43,7 +43,7 @@ class GetExerciseResponse(TypedDict):
     """
     exercise: Exercise
 
-class ExercisesQueryParams(TypedDict):
+class GetExercisesQueryDict(TypedDict):
     """
     Описание структуры параметров запроса для получения упражнений.
     """
@@ -70,7 +70,7 @@ class UpdateExerciseRequestDict(TypedDict):
 
 class ExercisesClient(APIClient):
     """ Клиент для работы с /api/v1/exercises"""
-    def get_exercises_api(self, query: ExercisesQueryParams) -> Response:
+    def get_exercises_api(self, query: GetExercisesQueryDict) -> Response:
         """
         Метод получения списка упражнений.
 
@@ -117,7 +117,7 @@ class ExercisesClient(APIClient):
         """
         return self.delete(f"/api/v1/exercises/{exercise_id}")
 
-    def get_exercises(self, query: ExercisesQueryParams) -> GetExercisesResponse:
+    def get_exercises(self, query: GetExercisesQueryDict) -> GetExercisesResponse:
         """Возвращает список упражнений (распарсенный JSON)."""
         response = self.get_exercises_api(query)
         return response.json()

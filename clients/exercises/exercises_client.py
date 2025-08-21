@@ -4,7 +4,7 @@ from clients.api_client import APIClient
 
 from typing import TypedDict
 
-from clients.private_http_builder import AuthenticationUserDict, get_private_http_client
+from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
 
 class Exercise(TypedDict):
     """
@@ -129,18 +129,18 @@ class ExercisesClient(APIClient):
 
     def create_exercise(self, request: CreateExerciseRequestDict) -> CreateExerciseResponseDict:
         """Создаёт упражнение и возвращает его (распарсенный JSON)."""
-        response = self.post_exercise_api(request)
+        response = self.create_exercise_api(request)
         return response.json()
 
     def update_exercise(self, exercise_id: str, request: UpdateExerciseRequestDict) -> UpdateExerciseResponseDict:
         """Частично обновляет упражнение и возвращает результат (распарсенный JSON)."""
-        response = self.patch_exercise_api(exercise_id, request)
+        response = self.update_exercise_api(exercise_id, request)
         return response.json()
 
 
 
 
-def get_exercises_client(user: AuthenticationUserDict) -> ExercisesClient:
+def get_exercises_client(user: AuthenticationUserSchema) -> ExercisesClient:
     """
     Билдер авторизованного клиента ExercisesClient.
 

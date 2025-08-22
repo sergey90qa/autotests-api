@@ -18,7 +18,7 @@ class PrivateUsersClient(APIClient):
         Получает информацию о пользователе по его ID.
 
         :param user_id: ID пользователя.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx. Response
         """
         return self.get(f"/api/v1/users/{user_id}")
 
@@ -28,7 +28,7 @@ class PrivateUsersClient(APIClient):
         Обновляет информацию о пользователе по его ID.
         :param user_id:
         :param request:
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx. Response
         """
         return self.patch(f"/api/v1/users/{user_id}", json=request.model_dump(by_alias=True))
 

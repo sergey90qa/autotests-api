@@ -1,7 +1,7 @@
 from http import HTTPStatus
 import pytest
 
-from tests.conftest import UserFixture
+from fixtures.users import UserFixture
 from tools.assertions.authentication import assert_login_response
 from clients.authentication.authentication_client import AuthenticationClient
 from clients.authentication.authentication_schema import LoginRequestSchema, LoginResponseSchema
